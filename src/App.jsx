@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import Authenticate from "./components/Authenticate";
 import SignUpForm from "./components/SignUpForm";
 import { useState } from "react";

@@ -8,6 +8,12 @@ const SignUpForm = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (username.length !== 8) {
+        setError("Short Username. Make it at least eight characters.");
+        return;
+      }
+    
     try {
       const response = await fetch(API, {
         method: "POST",
@@ -18,9 +24,8 @@ const SignUpForm = ({ setToken }) => {
       });
 
       const result = await response.json();
-      console.log(result);
-
       setToken(result.token);
+      setUsername(result.data.username);
     } catch (error) {
       setError(error.message);
     }
